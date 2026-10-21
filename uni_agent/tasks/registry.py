@@ -28,6 +28,7 @@ TASK_MODULES: dict[str, str] = {
     "hotpotqa": "uni_agent.tasks.hotpotqa.task",
     "terminal_bench": "uni_agent.tasks.terminal_bench.task",
     "npu_triton_kernel": "uni_agent.tasks.kernel_bench.task",
+    "mini_docker": "uni_agent.tasks.mini_docker.task",
 }
 
 

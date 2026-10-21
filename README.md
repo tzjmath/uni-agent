@@ -45,6 +45,8 @@ Follow the end-to-end path:
 
 For detailed guides and examples, we strongly recommend reading the [Uni-Agent documentation](https://uni-agent.readthedocs.io/en/latest/).
 
+A one-sample Docker smoke run that records SFT-ready trajectories lives in [examples/mini_docker](examples/mini_docker/README.md). It uses the same Gateway rollout path as RL training, on a single GPU, and writes `task.log`, `trajectory.json`, and `trajectory.npz`.
+
 ## Results 📊
 
 ### Parallel Inference & Verification

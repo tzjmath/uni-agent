@@ -1,0 +1,30 @@
+# One short ReAct episode in a local Docker container.
+# The sample's metadata.instruction is filled into the user message.
+- name: mini_docker
+  sandbox:
+    provider: docker
+    image: uni-agent-python:3.12
+    runtime_timeout: 900
+  agent:
+    name: react
+    max_steps: 8
+    action_timeout: 60
+    tools:
+      - name: stateful_shell
+        command_timeout: 60
+        env_vars:
+          PAGER: "cat"
+          PIP_PROGRESS_BAR: "off"
+      - name: submit
+    sampling_params_override:
+      temperature: 0
+      top_p: 1
+      max_tokens_per_turn: 1024
+  prompt_template:
+    - role: system
+      content: >-
+        You are a coding agent inside a Linux container. Call the shell tool
+        to run commands. Do not describe the command in a markdown code block.
+        After the file is correct, call the submit tool.
+    - role: user
+      content: "{instruction}"
